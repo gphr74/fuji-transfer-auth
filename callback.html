@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Fuji Transfer sign-in</title>
+<style>
+  body { font: 17px -apple-system, system-ui, sans-serif; margin: 0; padding: 48px 24px; text-align: center; color: #222; background: #fff; }
+  @media (prefers-color-scheme: dark) { body { color: #eee; background: #111; } a { color: #6af; } }
+</style>
+</head>
+<body>
+<p id="msg">Returning to Fuji Transfer…</p>
+<p><a id="link" href="#">Open Fuji Transfer</a></p>
+<script>
+  // Adobe can only redirect to https, so this page hands the sign-in answer (code and state, or an error) to the
+  // app's own scheme. Nothing is stored or sent anywhere else.
+  var target = "fujitransfer://auth" + window.location.search;
+  document.getElementById("link").href = target;
+  window.location.replace(target);
+</script>
+</body>
+</html>
